@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+    const navigate = useNavigate();
     return (
         <div className="form">
             <div className="form-body">
@@ -32,6 +34,10 @@ function Registration() {
             <div class="footer">
                 <button type="submit" class="btn">Register</button>
             </div>
+            <button
+                onClick={() => {
+                    navigate("/")
+                }}>Cancel</button>
         </div>
     )
 }
