@@ -36,7 +36,31 @@ function Registration() {
 
     // const navigate = useNavigate();
     return (
-        <div>Create a new account.</div>
+        <div>
+            <form>
+                <label>
+                    Username:
+                    <input type="text" name="username" />
+                </label>
+                <label>
+                    Email Address:
+                    <input type="text" name="email" />
+                </label>
+                <label>
+                    First Name:
+                    <input type="text" name="fName" />
+                </label>
+                <label>
+                    Last Name:
+                    <input type="text" name="lName" />
+                </label>
+                <label>
+                    Password:
+                    <input type="password" name="password" />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
     )
 }
 export default Registration;
