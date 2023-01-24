@@ -44,7 +44,7 @@ function Registration() {
     const [password, setPassword] = useState("");
 
     const register = () => {
-        Axios.post("https://localhost:3001/register", {
+        Axios.post("http://localhost:3001/register", {
             username: username,
             email: email,
             fName: fName,
@@ -63,26 +63,31 @@ function Registration() {
                     <input type="text" name="username"
                         onChange={(e) => { setUsername(e.target.value) }} />
                 </label>
+                <br />
                 <label>
                     Email Address:
                     <input type="text" name="email"
                         onChange={(e) => { setEmail(e.target.value) }} />
                 </label>
+                <br />
                 <label>
                     First Name:
                     <input type="text" name="fName"
                         onChange={(e) => { setfName(e.target.value) }} />
                 </label>
+                <br />
                 <label>
                     Last Name:
                     <input type="text" name="lName"
                         onChange={(e) => { setlName(e.target.value) }} />
                 </label>
+                <br />
                 <label>
                     Password:
                     <input type="password" name="password"
                         onChange={(e) => { setPassword(e.target.value) }} />
                 </label>
+                <br />
                 <input onClick={register} type="submit" value="Submit" />
             </form>
         </div>
