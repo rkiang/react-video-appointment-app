@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, Component } from 'react';
 import { useNavigate } from "react-router-dom";
+import Axios from "axios";
 // import { faCheck, faTimes, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -42,34 +43,47 @@ function Registration() {
     const [lName, setlName] = useState("");
     const [password, setPassword] = useState("");
 
+    const register = () => {
+        Axios.post("https://localhost:3001/register", {
+            username: username,
+            email: email,
+            fName: fName,
+            lName: lName,
+            password: password,
+        }).then((response) => {
+            console.log(response);
+        })
+    }
+
     return (
         <div>
             <form>
                 <label>
                     Username:
-                    <input type="text" name="username" />
+                    <input type="text" name="username"
+                        onChange={(e) => { setUsername(e.target.value) }} />
                 </label>
                 <label>
                     Email Address:
                     <input type="text" name="email"
-                        onChange={() => { setUsername(e.target.value) }} />
+                        onChange={(e) => { setEmail(e.target.value) }} />
                 </label>
                 <label>
                     First Name:
                     <input type="text" name="fName"
-                        onChange={() => { setfName(e.target.value) }} />
+                        onChange={(e) => { setfName(e.target.value) }} />
                 </label>
                 <label>
                     Last Name:
                     <input type="text" name="lName"
-                        onChange={() => { setlName(e.target.value) }} />
+                        onChange={(e) => { setlName(e.target.value) }} />
                 </label>
                 <label>
                     Password:
                     <input type="password" name="password"
-                        onChange={() => { setPassword(e.target.value) }} />
+                        onChange={(e) => { setPassword(e.target.value) }} />
                 </label>
-                <input type="submit" value="Submit" />
+                <input onClick={register} type="submit" value="Submit" />
             </form>
         </div>
     )
