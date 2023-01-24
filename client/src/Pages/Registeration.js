@@ -35,6 +35,13 @@ function Registration() {
 
 
     // const navigate = useNavigate();
+
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [fName, setfName] = useState("");
+    const [lName, setlName] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <div>
             <form>
@@ -44,19 +51,23 @@ function Registration() {
                 </label>
                 <label>
                     Email Address:
-                    <input type="text" name="email" />
+                    <input type="text" name="email"
+                        onChange={() => { setUsername(e.target.value) }} />
                 </label>
                 <label>
                     First Name:
-                    <input type="text" name="fName" />
+                    <input type="text" name="fName"
+                        onChange={() => { setfName(e.target.value) }} />
                 </label>
                 <label>
                     Last Name:
-                    <input type="text" name="lName" />
+                    <input type="text" name="lName"
+                        onChange={() => { setlName(e.target.value) }} />
                 </label>
                 <label>
                     Password:
-                    <input type="password" name="password" />
+                    <input type="password" name="password"
+                        onChange={() => { setPassword(e.target.value) }} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
